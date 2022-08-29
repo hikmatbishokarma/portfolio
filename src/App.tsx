@@ -1,24 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Designation } from './components/Designation';
+import { Events } from './components/Events';
+import { Greeting } from './components/Greeting';
+import { Heading } from './components/Heading';
 
 function App() {
+  const nameArray = [{
+    firstName: "Hikmat",
+    lastName: "Bishu Karma"
+  },
+  {
+    firstName: "Hikmat B.k",
+    lastName: "Bishu Karma"
+  },
+  {
+    firstName: "Hikmat Bishu Karma",
+    lastName: "Bishu Karma"
+  }
+  ]
+  const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log("event",event)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Greeting name={nameArray} messageCount={20} />
+      <Heading> Hello people</Heading>
+      <Designation>
+        <Heading>My Designation is Software Developer</Heading>
+      </Designation>
+      <Events handleClick={handleChange} />
     </div>
   );
 }
